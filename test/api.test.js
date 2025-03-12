@@ -1,13 +1,8 @@
 const request = require("supertest");
-const app = require("../index"); // Import your Express app
-let server;
-
-beforeAll(() => {
-  server = app.listen(4000); // Start the server for testing
-});
+const { app, server } = require("../index"); // Import the server
 
 afterAll((done) => {
-  server.close(done); // Ensure the server closes after tests
+  server.close(done); // Close server after tests
 });
 
 describe("GET /", () => {
